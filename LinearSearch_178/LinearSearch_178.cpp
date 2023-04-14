@@ -1,9 +1,10 @@
 #include <iostream>
 using namespace std;
 
-int arr[20]; // Array to be searched
-int n; // Number
-int i; //
+int arr[20];                        //array to be searched
+int n;                              //number of element in the array
+int i;                              //index of array element
+
 
 void input()
 {
@@ -27,3 +28,36 @@ void input()
 		cin >> arr[i];
 	}
 }
+
+void linearsearch()
+{
+	char ch;
+	int comparison;                //number of comparisons
+
+	do
+	{
+		//Accept the number to be searched
+		cout << "\nEnter the element you want to search: ";         //langkah 1
+		int item;
+		cin >> item;
+
+		comparison = 0;
+		for ( i = 0; i < n; i++)									// Langkah 2,3 dan 4
+		{
+			comparison++;
+			if (arr[i] == item)										// Langkah 5
+			{
+				cout << "\n" << item << "found at position" << (i + 1) << endl;
+				break;
+			}
+		}
+
+		if (i == n)
+			cout << "\n" << item << "not found in the array\n";
+		cout << "\nNumber of comparisons: " << comparison << endl;
+
+		cout << "\nContinue Search (y/n): ";
+		cin >> ch;	
+	} while ((ch == 'y') || (ch = 'Y'));
+}
+
